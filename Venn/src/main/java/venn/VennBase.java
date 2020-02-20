@@ -277,6 +277,7 @@ public class VennBase extends Application	 {
 		pane.getChildren().add(left);
 		pane.getChildren().add(right);
 		
+		pane.getChildren().add(flow); //Adding screenshot feature to pane
 		
 		root.getChildren().addAll(pane);
 		Scene scene2 = new Scene(root);
