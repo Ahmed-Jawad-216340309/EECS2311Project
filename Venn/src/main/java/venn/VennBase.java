@@ -27,6 +27,28 @@ public class VennBase extends Application	 {
 	@Override 
 	public void start(Stage stage) {
 		
+		//Screen-shot implementation
+		FlowPane flow = new FlowPane();
+		ImageView display = new ImageView();
+		Button capture = new Button("Take Screenshot of Venn Diagram!");
+		flow.getChildren().addAll(display, capture);
+		
+		capture.setOnAction(event -> {
+			try {
+				Robot robot = new Robot();
+				Rectangle rect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+				BufferedImage image = robot.createScreenCapture(rect);
+				Image myImage = SwingFXUtils.toFXImage(image, null);
+				ImageIO.write(image, "jpg", new File("VennScreenShot.jpg"));
+				//display.setImage(myImage);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		});
+		
+		
+		
+		
 		//sets window
 		stage.setMaximized(true);
 		StackPane root = new StackPane();
