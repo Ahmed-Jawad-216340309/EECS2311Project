@@ -22,11 +22,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+
+
 jar {
 	manifest {
 		attributes 'Main-Class': 'EECS2311Project.Main'
 	}
 }
+
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
