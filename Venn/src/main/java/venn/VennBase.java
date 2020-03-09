@@ -6,41 +6,28 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
-<<<<<<< HEAD
-=======
 import java.awt.TextField;
 import java.util.Optional;
 import java.util.ArrayList;
->>>>>>> branch 'master' of https://github.com/lukas-rose-216489023/EECS2311Project.git
 import javafx.application.Application;
-<<<<<<< HEAD
-import javafx.event.*;
-import javafx.beans.value.ObservableValue;
-import javafx.embed.swing.SwingFXUtils;
-=======
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
->>>>>>> branch 'master' of https://github.com/lukas-rose-216489023/EECS2311Project.git
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-<<<<<<< HEAD
-=======
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
->>>>>>> branch 'master' of https://github.com/lukas-rose-216489023/EECS2311Project.git
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -51,28 +38,19 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.control.ColorPicker;
-<<<<<<< HEAD
-=======
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
->>>>>>> branch 'master' of https://github.com/lukas-rose-216489023/EECS2311Project.git
 import javafx.scene.control.TextInputDialog;
-<<<<<<< HEAD
-
-=======
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
->>>>>>> branch 'master' of https://github.com/lukas-rose-216489023/EECS2311Project.git
-									
+
 @SuppressWarnings("unused")
 public class VennBase extends Application	 {
 	
@@ -83,38 +61,7 @@ public class VennBase extends Application	 {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override 
 	public void start(Stage stage) {
-<<<<<<< HEAD
-		
-		//Screen-shot implementation
-		FlowPane flow = new FlowPane();
-		ImageView display = new ImageView();
-		Button capture = new Button("Take Screenshot of Venn Diagram!");
-		flow.getChildren().addAll(display, capture);
-		
-		capture.setOnAction(event -> {
-			try {
-				Robot robot = new Robot();
-				Rectangle rect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-				BufferedImage image = robot.createScreenCapture(rect);
-				Image myImage = SwingFXUtils.toFXImage(image, null);
-				ImageIO.write(image, "jpg", new File("VennScreenShot.jpg"));
-				//display.setImage(myImage);
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		});
-		
-		
-		
-		
-		//sets window
-		stage.setMaximized(true);
-		StackPane root = new StackPane();
-		Pane pane = new Pane();
-		
-=======
 
->>>>>>> branch 'master' of https://github.com/lukas-rose-216489023/EECS2311Project.git
 		//Get primary screen bounds
 	    Rectangle2D screenBounds = Screen.getPrimary().getBounds();
 	    
@@ -127,7 +74,6 @@ public class VennBase extends Application	 {
 		stage.setScene(scene);
 		stage.setMaximized(true);
 		stage.show();
-		
 		
 		//Custom colors
 		Color blue = new Color(Color.BLUE.getRed(), Color.BLUE.getGreen(), Color.BLUE.getBlue(), 0.5);		
@@ -260,7 +206,7 @@ public class VennBase extends Application	 {
 				}
         });
 		
-//		cp3.setOnAction(new EventHandler() {
+//		cp3.setOnAction(new EventHandler() { 
 //			@Override
 //			public void handle(javafx.event.Event event) {
 //				String textBo = Integer.toHexString(cp3.getValue().hashCode());//String.format("#%02X%02X%02X", ((int)cp3.getValue().getRed())*255, ((int)cp3.getValue().getGreen())*255, ((int)cp3.getValue().getBlue())*255);
@@ -271,15 +217,15 @@ public class VennBase extends Application	 {
 		
 		
 		//Anchor option button
-		Button anchorOption = new Button("Anchoring off");
+		Button anchorOption = new Button("Anchoring: off");
 		anchorOption.prefWidthProperty().bind(pane.widthProperty().multiply(15.0/100.0));
 		anchorOption.prefHeightProperty().bind(pane.heightProperty().multiply(5.0/100.0));
 		anchorOption.layoutXProperty().bind(pane.widthProperty().multiply(85.0/100.0));
 		anchorOption.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				if (VennBase.anchor) {VennBase.anchor = false;anchorOption.setText("Anchoring off");}
-				else {VennBase.anchor = true;anchorOption.setText("Anchoring on");}
+				if (VennBase.anchor) {VennBase.anchor = false;anchorOption.setText("Anchoring: off");}
+				else {VennBase.anchor = true;anchorOption.setText("Anchoring: on");}
 			}
 		});
 		
@@ -694,7 +640,7 @@ public class VennBase extends Application	 {
 									////		            						System.out.println("(newX-oldX)/2 = "+ ((newX.doubleValue()-oldX.doubleValue())/2.0)+"; old="+old+" ==> new="+box.getLayoutX());
 
 									box.setLayoutX(pane.getWidth() * record.percentX);
-									
+
 									p.l1 = new Point(circleL.getLayoutX()-(circleL.getRadius()*0.51172), circleL.getLayoutY()-(circleL.getRadius()*0.8359));
 									p.l2 = new Point(circleL.getLayoutX()-(circleL.getRadius()*0.65625), p.l1.yValue+pane.getHeight()*0.0608);
 									p.l3 = new Point(circleL.getLayoutX()-(circleL.getRadius()*0.78125), p.l2.yValue+pane.getHeight()*0.0608);
@@ -877,12 +823,8 @@ public class VennBase extends Application	 {
 		pane.getChildren().add(right);
 		pane.getChildren().addAll(cpR, cpL);
 		
-<<<<<<< HEAD
-		pane.getChildren().add(flow); //Adding screenshot feature to pane
-=======
 		//Adds screenshot to window
 		pane.getChildren().add(flow);
->>>>>>> branch 'master' of https://github.com/lukas-rose-216489023/EECS2311Project.git
 		
 		//debug data -------------------------------------------------------------------------------------------------------
 		Text screen_bounds = new Text();
